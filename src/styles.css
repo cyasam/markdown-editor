@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --padding: 40px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+a {
+  color: cornflowerblue;
+}
+
+[data-theme="dark"] {
+  background: black;
+  color: #ddd;
+}
+
+[data-theme="dark"] a {
+  color: rgb(237, 194, 100);
+}

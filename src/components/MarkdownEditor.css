@@ -1,0 +1,24 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: calc(100vh - var(--padding));
+  gap: 30px;
+  padding: calc(var(--padding) / 2);
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 100%;
+    grid-template-rows: 300px;
+  }
+}
+
+.theme-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.theme-selector h1 {
+  margin-right: 20px;
+}

@@ -1,0 +1,9 @@
+.preview {
+  height: 100%;
+  overflow: auto;
+}
+
+.preview img {
+  max-width: 100%;
+  height: auto;
+}
