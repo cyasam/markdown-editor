@@ -16,11 +16,15 @@ a {
   color: cornflowerblue;
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   background: black;
   color: #ddd;
 }
 
-[data-theme="dark"] a {
+[data-theme='dark'] a {
   color: rgb(237, 194, 100);
+}
+
+.app {
+  min-height: 100vh;
 }
