@@ -1,15 +1,17 @@
 .container {
   display: grid;
+  height: 100vh;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: calc(100vh - var(--padding));
+  grid-template-rows: auto;
   gap: 30px;
   padding: calc(var(--padding) / 2);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .container {
+    height: auto;
     grid-template-columns: 100%;
-    grid-template-rows: 300px;
+    grid-template-rows: auto 300px 1fr;
   }
 }
 
@@ -17,6 +19,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  grid-column: 1 / -1;
 }
 
 .theme-selector h1 {

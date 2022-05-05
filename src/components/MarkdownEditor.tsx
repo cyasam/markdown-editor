@@ -37,7 +37,7 @@ const MarkdownEditor: React.FunctionComponent<MarkdownEditorProps> = ({
   }, []);
 
   return (
-    <>
+    <div className="container">
       <div className="theme-selector">
         <h1>Markdown Editor</h1>
         <ThemeSelector
@@ -47,16 +47,14 @@ const MarkdownEditor: React.FunctionComponent<MarkdownEditorProps> = ({
           }
         />
       </div>
-      <div className="container">
-        <MarkdownInput
-          value={markdown}
-          onChange={(val) => {
-            onChange(val, setMarkdown);
-          }}
-        />
-        <MarkdownPreview markdown={markdown} />
-      </div>
-    </>
+      <MarkdownInput
+        value={markdown}
+        onChange={(val) => {
+          onChange(val, setMarkdown);
+        }}
+      />
+      <MarkdownPreview markdown={markdown} />
+    </div>
   );
 };
 
