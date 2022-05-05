@@ -1,266 +1,75 @@
-# markdown-it
+# [React](https://reactjs.org/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/main/LICENSE) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react) [![CircleCI Status](https://circleci.com/gh/facebook/react.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/facebook/react) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
 
-[![CI](https://github.com/markdown-it/markdown-it/workflows/CI/badge.svg)](https://github.com/markdown-it/markdown-it/actions)
-[![NPM version](https://img.shields.io/npm/v/markdown-it.svg?style=flat)](https://www.npmjs.org/package/markdown-it)
-[![Coverage Status](https://coveralls.io/repos/markdown-it/markdown-it/badge.svg?branch=master&service=github)](https://coveralls.io/github/markdown-it/markdown-it?branch=master)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/markdown-it/markdown-it)
+React is a JavaScript library for building user interfaces.
 
-&gt; Markdown parser done right. Fast and easy to extend.
+- **Declarative:** React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes. Declarative views make your code more predictable, simpler to understand, and easier to debug.
+- **Component-Based:** Build encapsulated components that manage their state, then compose them to make complex UIs. Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep the state out of the DOM.
+- **Learn Once, Write Anywhere:** We don't make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code. React can also render on the server using Node and power mobile apps using [React Native](https://reactnative.dev/).
 
-**[Live demo](https://markdown-it.github.io)**
+[Learn how to use React in your project](https://reactjs.org/docs/getting-started.html).
 
-- Follows the **[CommonMark spec](http://spec.commonmark.org/)** + adds syntax extensions &amp; sugar (URL autolinking, typographer).
-- Configurable syntax! You can add new rules and even replace existing ones.
-- High speed.
-- [Safe](https://github.com/markdown-it/markdown-it/tree/master/docs/security.md) by default.
-- Community-written **[plugins](https://www.npmjs.org/browse/keyword/markdown-it-plugin)** and [other packages](https://www.npmjs.org/browse/keyword/markdown-it) on npm.
+## Installation
 
-**Table of content**
+React has been designed for gradual adoption from the start, and **you can use as little or as much React as you need**:
 
-- [Install](#install)
-- [Usage examples](#usage-examples)
-  - [Simple](#simple)
-  - [Init with presets and options](#init-with-presets-and-options)
-  - [Plugins load](#plugins-load)
-  - [Syntax highlighting](#syntax-highlighting)
-  - [Linkify](#linkify)
-- [API](#api)
-- [Syntax extensions](#syntax-extensions)
-  - [Manage rules](#manage-rules)
-- [Benchmark](#benchmark)
-- [markdown-it for enterprise](#markdown-it-for-enterprise)
-- [Authors](#authors)
-- [References / Thanks](#references--thanks)
+- Use [Online Playgrounds](https://reactjs.org/docs/getting-started.html#online-playgrounds) to get a taste of React.
+- [Add React to a Website](https://reactjs.org/docs/add-react-to-a-website.html) as a `<script>` tag in one minute.
+- [Create a New React App](https://reactjs.org/docs/create-a-new-react-app.html) if you're looking for a powerful JavaScript toolchain.
 
-## Install
+You can use React as a `<script>` tag from a [CDN](https://reactjs.org/docs/cdn-links.html), or as a `react` package on [npm](https://www.npmjs.com/package/react).
 
-**node.js**:
+## Documentation
 
-```bash
-npm install markdown-it --save
+You can find the React documentation [on the website](https://reactjs.org/).
+
+Check out the [Getting Started](https://reactjs.org/docs/getting-started.html) page for a quick overview.
+
+The documentation is divided into several sections:
+
+- [Tutorial](https://reactjs.org/tutorial/tutorial.html)
+- [Main Concepts](https://reactjs.org/docs/hello-world.html)
+- [Advanced Guides](https://reactjs.org/docs/jsx-in-depth.html)
+- [API Reference](https://reactjs.org/docs/react-api.html)
+- [Where to Get Support](https://reactjs.org/community/support.html)
+- [Contributing Guide](https://reactjs.org/docs/how-to-contribute.html)
+
+You can improve it by sending pull requests to [this repository](https://github.com/reactjs/reactjs.org).
+
+## Examples
+
+We have several examples [on the website](https://reactjs.org/). Here is the first one to get you started:
+
+```jsx
+import { createRoot } from 'react-dom/client';
+
+function HelloMessage({ name }) {
+  return <div>Hello {name}</div>;
+}
+
+const root = createRoot(document.getElementById('container'));
+root.render(<HelloMessage name="Taylor" />);
 ```
 
-**browser (CDN):**
+This example will render "Hello Taylor" into a container on the page.
 
-- [jsDeliver CDN](http://www.jsdelivr.com/#!markdown-it "jsDelivr CDN")
-- [cdnjs.com CDN](https://cdnjs.com/libraries/markdown-it "cdnjs.com")
+You'll notice that we used an HTML-like syntax; [we call it JSX](https://reactjs.org/docs/introducing-jsx.html). JSX is not required to use React, but it makes code more readable and writing it feels like writing HTML. If you're using React as a `<script>` tag, read [this section](https://reactjs.org/docs/add-react-to-a-website.html#optional-try-react-with-jsx) on integrating JSX; otherwise, the [recommended JavaScript toolchains](https://reactjs.org/docs/create-a-new-react-app.html) handle it automatically.
 
-## Usage examples
+## Contributing
 
-See also:
+The main purpose of this repository is to continue evolving React core, making it faster and easier to use. Development of React happens in the open on GitHub, and we are grateful to the community for contributing bugfixes and improvements. Read below to learn how you can take part in improving React.
 
-- **[API documentation](https://markdown-it.github.io/markdown-it/)** - for more
-  info and examples.
-- [Development info](https://github.com/markdown-it/markdown-it/tree/master/docs) -
-  for plugins writers.
+### [Code of Conduct](https://code.fb.com/codeofconduct)
 
-### Simple
+Facebook has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](https://code.fb.com/codeofconduct) so that you can understand what actions will and will not be tolerated.
 
-```js
-// node.js, "classic" way:
-var MarkdownIt = require("markdown-it"),
-  md = new MarkdownIt();
-var result = md.render("# markdown-it rulezz!");
+### [Contributing Guide](https://reactjs.org/docs/how-to-contribute.html)
 
-// node.js, the same, but with sugar:
-var md = require("markdown-it")();
-var result = md.render("# markdown-it rulezz!");
+Read our [contributing guide](https://reactjs.org/docs/how-to-contribute.html) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to React.
 
-// browser without AMD, added to "window" on script load
-// Note, there is no dash in "markdownit".
-var md = window.markdownit();
-var result = md.render("# markdown-it rulezz!");
-```
+### Good First Issues
 
-Single line rendering, without paragraph wrap:
+To help you get your feet wet and get you familiar with our contribution process, we have a list of [good first issues](https://github.com/facebook/react/labels/good%20first%20issue) that contain bugs that have a relatively limited scope. This is a great place to get started.
 
-```js
-var md = require("markdown-it")();
-var result = md.renderInline("__markdown-it__ rulezz!");
-```
+### License
 
-### Init with presets and options
-
-(\*) presets define combinations of active rules and options. Can be
-`"commonmark"`, `"zero"` or `"default"` (if skipped). See
-[API docs](https://markdown-it.github.io/markdown-it/#MarkdownIt.new) for more details.
-
-````js
-// commonmark mode
-var md = require("markdown-it")("commonmark");
-
-// default mode
-var md = require("markdown-it")();
-
-// enable everything
-var md = require("markdown-it")({
-  html: true,
-  linkify: true,
-  typographer: true
-});
-
-// full options list (defaults)
-var md = require("markdown-it")({
-  html: false, // Enable HTML tags in source
-  xhtmlOut: false, // Use '/' to close single tags (<br>).
-  // This is only for full CommonMark compatibility.
-  breaks: false, // Convert '\n' in paragraphs into <br>
-  langPrefix: "language-", // CSS language prefix for fenced blocks. Can be
-  // useful for external highlighters.
-  linkify: false, // Autoconvert URL-like text to links
-
-  // Enable some language-neutral replacement + quotes beautification
-  // For the full list of replacements, see https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/replacements.js
-  typographer: false,
-
-  // Double + single quotes replacement pairs, when typographer enabled,
-  // and smartquotes on. Could be either a String or an Array.
-  //
-  // For example, you can use '«»„“' for Russian, '„“‚‘' for German,
-  // and ['«\xA0', '\xA0»', '‹\xA0', '\xA0›'] for French (including nbsp).
-  quotes: "“”‘’",
-
-  // Highlighter function. Should return escaped HTML,
-  // or '' if the source string is not changed and should be escaped externally.
-  // If result starts with `):
-
-```js
-var hljs = require("highlight.js"); // https://highlightjs.org/
-
-// Actual default values
-var md = require("markdown-it")({
-  highlight: function (str, lang) {
-    if (lang &amp;&amp; hljs.getLanguage(lang)) {
-      try {
-        return (
-          '<pre class="hljs"><code>' +
-          hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
-          "</code></pre>"
-        );
-      } catch (__) {}
-    }
-
-    return (
-      '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + "</code></pre>"
-    );
-  }
-});
-````
-
-### Linkify
-
-`linkify: true` uses [linkify-it](https://github.com/markdown-it/linkify-it). To
-configure linkify-it, access the linkify instance through `md.linkify`:
-
-```js
-md.linkify.set({ fuzzyEmail: false }); // disables converting email to link
-```
-
-## API
-
-**[API documentation](https://markdown-it.github.io/markdown-it/)**
-
-If you are going to write plugins - take a look at
-[Development info](https://github.com/markdown-it/markdown-it/tree/master/docs).
-
-## Syntax extensions
-
-Embedded (enabled by default):
-
-- [Tables](https://help.github.com/articles/organizing-information-with-tables/) (GFM)
-- [Strikethrough](https://help.github.com/articles/basic-writing-and-formatting-syntax/#styling-text) (GFM)
-
-Via plugins:
-
-- [subscript](https://github.com/markdown-it/markdown-it-sub)
-- [superscript](https://github.com/markdown-it/markdown-it-sup)
-- [footnote](https://github.com/markdown-it/markdown-it-footnote)
-- [definition list](https://github.com/markdown-it/markdown-it-deflist)
-- [abbreviation](https://github.com/markdown-it/markdown-it-abbr)
-- [emoji](https://github.com/markdown-it/markdown-it-emoji)
-- [custom container](https://github.com/markdown-it/markdown-it-container)
-- [insert](https://github.com/markdown-it/markdown-it-ins)
-- [mark](https://github.com/markdown-it/markdown-it-mark)
-- ... and [others](https://www.npmjs.org/browse/keyword/markdown-it-plugin)
-
-### Manage rules
-
-By default all rules are enabled, but can be restricted by options. On plugin
-load all its rules are enabled automatically.
-
-```js
-// Activate/deactivate rules, with currying
-var md = require("markdown-it")()
-  .disable(["link", "image"])
-  .enable(["link"])
-  .enable("image");
-
-// Enable everything
-md = require("markdown-it")({
-  html: true,
-  linkify: true,
-  typographer: true
-});
-```
-
-You can find all rules in sources:
-[parser_core.js](lib/parser_core.js), [parser_block](lib/parser_block.js),
-[parser_inline](lib/parser_inline.js).
-
-## Benchmark
-
-Here is the result of readme parse at MB Pro Retina 2013 (2.4 GHz):
-
-```bash
-make benchmark-deps
-benchmark/benchmark.js readme
-
-Selected samples: (1 of 28)
- &gt; README
-
-Sample: README.md (7774 bytes)
- &gt; commonmark-reference x 1,222 ops/sec ±0.96% (97 runs sampled)
- &gt; current x 743 ops/sec ±0.84% (97 runs sampled)
- &gt; current-commonmark x 1,568 ops/sec ±0.84% (98 runs sampled)
- &gt; marked x 1,587 ops/sec ±4.31% (93 runs sampled)
-```
-
-**Note.** CommonMark version runs with [simplified link normalizers](https://github.com/markdown-it/markdown-it/blob/master/benchmark/implementations/current-commonmark/index.js)
-for more "honest" compare. Difference is ~ 1.5x.
-
-As you can see, `markdown-it` doesn't pay with speed for it's flexibility.
-Slowdown of "full" version caused by additional features not available in
-other implementations.
-
-## markdown-it for enterprise
-
-Available as part of the Tidelift Subscription.
-
-The maintainers of `markdown-it` and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source dependencies you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact dependencies you use. [Learn more.](https://tidelift.com/subscription/pkg/npm-markdown-it?utm_source=npm-markdown-it&utm_medium=referral&utm_campaign=enterprise&utm_term=repo)
-
-## Authors
-
-- Alex Kocharin [github/rlidwka](https://github.com/rlidwka)
-- Vitaly Puzrin [github/puzrin](https://github.com/puzrin)
-
-_markdown-it_ is the result of the decision of the authors who contributed to
-99% of the _Remarkable_ code to move to a project with the same authorship but
-new leadership (Vitaly and Alex). It's not a fork.
-
-## References / Thanks
-
-Big thanks to [John MacFarlane](https://github.com/jgm) for his work on the
-CommonMark spec and reference implementations. His work saved us a lot of time
-during this project's development.
-
-**Related Links:**
-
-- https://github.com/jgm/CommonMark - reference CommonMark implementations in C &amp; JS,
-  also contains latest spec &amp; online demo.
-- http://talk.commonmark.org - CommonMark forum, good place to collaborate
-  developers' efforts.
-
-**Ports**
-
-- [motion-markdown-it](https://github.com/digitalmoksha/motion-markdown-it) - Ruby/RubyMotion
-- [markdown-it-py](https://github.com/ExecutableBookProject/markdown-it-py)- Python
+React is [MIT licensed](./LICENSE).

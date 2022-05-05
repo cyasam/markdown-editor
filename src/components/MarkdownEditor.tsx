@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import DOMPurify from 'dompurify';
 import './MarkdownEditor.css';
 
 import MarkdownInput from './MarkdownInput';
@@ -14,8 +13,7 @@ type MarkdownEditorProps = {
 };
 
 const onChange = (value: string, setChange: Function): void => {
-  const sanitizedValue = DOMPurify.sanitize(value);
-  setChange(sanitizedValue);
+  setChange(value);
 };
 
 const MarkdownEditor: React.FunctionComponent<MarkdownEditorProps> = ({
@@ -29,8 +27,7 @@ const MarkdownEditor: React.FunctionComponent<MarkdownEditorProps> = ({
       const response = await fetch(exampleData);
       const data = await response.text();
 
-      const sanitizedData = DOMPurify.sanitize(data);
-      setMarkdown(sanitizedData);
+      setMarkdown(data);
     };
 
     getExample();
