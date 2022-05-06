@@ -8,7 +8,13 @@ textarea {
   resize: vertical;
 }
 
-[data-theme="dark"] textarea {
+[data-theme='dark'] textarea {
   background: black;
   color: #ddd;
+}
+
+@media (max-width: 1024px) {
+  textarea {
+    min-height: 200px;
+  }
 }

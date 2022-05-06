@@ -1,7 +1,5 @@
 import MarkdownIt from 'markdown-it';
-import { useEffect } from 'react';
 import hljs from 'highlight.js';
-import { JSDOM } from 'jsdom';
 
 import '../assets/light.css';
 import '../assets/dark.css';
